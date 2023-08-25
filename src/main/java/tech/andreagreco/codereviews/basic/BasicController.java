@@ -19,7 +19,8 @@ import tech.andreagreco.codereviews.model.ApiResult;
 public class BasicController {
 
    @GetMapping("/add")
-   public ApiResult add(@RequestParam BigDecimal augend, @RequestParam BigDecimal addend ) {
+   public ApiResult add(
+      @RequestParam BigDecimal augend, @RequestParam BigDecimal addend ){
       return getResult(augend.add(addend));
    }
 
@@ -29,12 +30,13 @@ public class BasicController {
    }
 
    @GetMapping("/multiply")
-   public ApiResult multiply(@RequestParam BigDecimal multiplier, @RequestParam BigDecimal multiplicand) {
+   public ApiResult multiply(@RequestParam BigDecimal multiplier, @RequestParam BigDecimal multiplicand){
       return getResult(multiplier.multiply(multiplicand));
    }
 
    @GetMapping("/divide")
-   public ApiResult divide(@RequestParam BigDecimal dividend, @RequestParam BigDecimal divisor) {
+   public ApiResult divide(@RequestParam BigDecimal dividend, @RequestParam BigDecimal divisor) 
+   {
       if (divisor.equals(BigDecimal.ZERO)) {
          return getResultFromError("no division by null");
       }
