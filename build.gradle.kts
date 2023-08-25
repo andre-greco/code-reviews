@@ -1,9 +1,15 @@
 plugins {
-    id("java")
+    java
+    id("org.springframework.boot") version "3.1.3"
+    id("io.spring.dependency-management") version "1.1.3"
 }
 
 group = "tech.andreagreco"
-version = "1.0-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -11,11 +17,9 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-tasks.test {
+tasks.withType<Test> {
     useJUnitPlatform()
 }
