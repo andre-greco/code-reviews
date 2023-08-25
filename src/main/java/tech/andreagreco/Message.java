@@ -10,7 +10,7 @@ public class Message {
         super();
     }
 
-    public String getAdress() {
+    public String getAddress() {
         return this.address;
     }
 }
